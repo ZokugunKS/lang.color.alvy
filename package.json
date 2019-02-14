@@ -1,7 +1,7 @@
 {
 	"name": "zokugun.lang.color.alvy",
 	"description": "Add hsv/hsb, hsl, hwb and hsi spaces to Color class",
-	"version": "1.0.0",
+	"version": "0.3.0",
 	"since": "2014-05-15",
 	"author": {
 		"name": "Baptiste Augrain",
@@ -26,6 +26,7 @@
 	],
 	"main": "src/index.ks",
 	"dependencies": {
+		"@zokugun/lang": "github:zokugunks/lang",
 		"@zokugun/lang.color": "github:zokugunks/lang.color"
 	},
 	"devDependencies": {
