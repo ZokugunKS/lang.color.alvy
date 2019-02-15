@@ -27,8 +27,8 @@ impl Color {
 	darken(value: Number | String) { // {{{
 		this.space('brightness')
 
-		if value is String && value:String.endsWith('%') {
-			return this.brightness(this._brightness * ((100 - value:String.toFloat()) / 100))
+		if value is String && value.endsWith('%') {
+			return this.brightness(this._brightness * ((100 - value.toFloat()) / 100))
 		}
 		else {
 			return this.brightness(this._brightness - value.toFloat())
@@ -38,8 +38,8 @@ impl Color {
 	desaturate(value: Number | String) { // {{{
 		this.space('saturation')
 
-		if value is String && value:String.endsWith('%') {
-			return this.saturation(this._saturation * ((100 - value:String.toFloat()) / 100))
+		if value is String && value.endsWith('%') {
+			return this.saturation(this._saturation * ((100 - value.toFloat()) / 100))
 		}
 		else {
 			return this.saturation(this._saturation - value.toFloat())
@@ -49,8 +49,8 @@ impl Color {
 	lighten(value: Number | String) { // {{{
 		this.space('brightness')
 
-		if value is String && value:String.endsWith('%') {
-			return this.brightness(this._brightness * ((100 + value:String.toFloat()) / 100))
+		if value is String && value.endsWith('%') {
+			return this.brightness(this._brightness * ((100 + value.toFloat()) / 100))
 		}
 		else {
 			return this.brightness(this._brightness + value.toFloat())
@@ -60,8 +60,8 @@ impl Color {
 	saturate(value: Number | String) { // {{{
 		this.space('saturation')
 
-		if value is String && value:String.endsWith('%') {
-			return this.saturation(this._saturation * ((100 + value:String.toFloat()) / 100))
+		if value is String && value.endsWith('%') {
+			return this.saturation(this._saturation * ((100 + value.toFloat()) / 100))
 		}
 		else {
 			return this.saturation(this._saturation + value.toFloat())
@@ -71,8 +71,8 @@ impl Color {
 	shift(value: Number | String) { // {{{
 		this.space('hue')
 
-		if value is String && value:String.endsWith('%') {
-			return this.hue(this._hue * ((100 + value:String.toFloat()) / 100))
+		if value is String && value.endsWith('%') {
+			return this.hue(this._hue * ((100 + value.toFloat()) / 100))
 		}
 		else {
 			return this.hue(this._hue + value.toFloat())
@@ -82,8 +82,8 @@ impl Color {
 	unshift(value: Number | String) { // {{{
 		this.space('hue')
 
-		if value is String && value:String.endsWith('%') {
-			return this.hue(this._hue * ((100 - value:String.toFloat()) / 100))
+		if value is String && value.endsWith('%') {
+			return this.hue(this._hue * ((100 - value.toFloat()) / 100))
 		}
 		else {
 			return this.hue(this._hue - value.toFloat())

@@ -23,7 +23,7 @@ const $caster = {
 	alpha(n?, percentage = null) { // {{{
 		n = parseFloat(n)
 
-		if n is NaN {
+		if n == NaN {
 			return 1
 		}
 
