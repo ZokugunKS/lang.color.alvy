@@ -16,7 +16,7 @@ Getting Started
 
 With [node](http://nodejs.org) previously installed:
 
-	npm install zokugun.lang.color.alvy
+	npm install @zokugun/lang.color.alvy
 
 Use it with `JavaScript`:
 
