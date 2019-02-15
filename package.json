@@ -1,5 +1,5 @@
 {
-	"name": "zokugun.lang.color.alvy",
+	"name": "@zokugun/lang.color.alvy",
 	"description": "Add hsv/hsb, hsl, hwb and hsi spaces to Color class",
 	"version": "0.3.0",
 	"since": "2014-05-15",
