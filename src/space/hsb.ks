@@ -8,7 +8,7 @@ Color.registerSpace!({
 				let match
 				// hsb(120, 100%, 50%)
 				if match ?= /^hs[bv]a?\((\d{1,3}),([0-9.]+\%),([0-9.]+\%)(?:,([0-9.]+)(\%)?)?\)$/.exec(color) {
-					that._space = 'hsb'
+					that._space = Space::HSB
 					that._hue = $caster.hue(match[1])
 					that._saturation = $caster.percentage(match[2])
 					that._brightness = $caster.percentage(match[3])
@@ -17,7 +17,7 @@ Color.registerSpace!({
 				}
 				// hsb(120deg, 100%, 50%)
 				else if match ?= /^hs[bv]a?\(([0-9.]+)(deg|grad|rad|turn),([0-9.]+\%),([0-9.]+\%)(?:,([0-9.]+)(\%)?)?\)$/.exec(color) {
-					that._space = 'hsb'
+					that._space = Space::HSB
 					that._hue = $caster.hue(match[1] + match[2])
 					that._saturation = $caster.percentage(match[3])
 					that._brightness = $caster.percentage(match[4])
@@ -26,7 +26,7 @@ Color.registerSpace!({
 				}
 				// hsb(yellow, 100%, 50%)
 				else if match ?= /^hs[bv]a?\((red|orange|yellow|green|blue|purple),([0-9.]+\%),([0-9.]+\%)(?:,([0-9.]+)(\%)?)?\)$/.exec(color) {
-					that._space = 'hsb'
+					that._space = Space::HSB
 					that._hue = $caster.namedHue(match[1])
 					that._saturation = $caster.percentage(match[2])
 					that._brightness = $caster.percentage(match[3])
@@ -35,7 +35,7 @@ Color.registerSpace!({
 				}
 				// hsb(yellow green, 100%, 50%)
 				else if match ?= /^hs[bv]a?\((red|orange|yellow|green|blue|purple|(?:(?:reddish|orangish|yellowish|greenish|bluish|purplish)(?:\([0-9.]+\%\))?))(red|orange|yellow|green|blue|purple),([0-9.]+\%),([0-9.]+\%)(?:,([0-9.]+)(\%)?)?\)$/.exec(color) {
-					that._space = 'hsb'
+					that._space = Space::HSB
 					that._hue = $caster.namedHue(match[1], match[2])
 					that._saturation = $caster.percentage(match[3])
 					that._brightness = $caster.percentage(match[4])
@@ -45,7 +45,7 @@ Color.registerSpace!({
 			}
 			else if args[0] is Object {
 				if args[0].h? && args[0].s? && args[0].b? {
-					that._space = 'hsb'
+					that._space = Space::HSB
 					that._alpha = $caster.alpha(args[0].a)
 					that._hue = $caster.hue(args[0].h)
 					that._saturation = $caster.percentage(args[0].s)
@@ -53,7 +53,7 @@ Color.registerSpace!({
 					return true
 				}
 				else if args[0].hue? && args[0].saturation? && args[0].brightness? {
-					that._space = 'hsb'
+					that._space = Space::HSB
 					that._alpha = $caster.alpha(args[0].alpha)
 					that._hue = $caster.hue(args[0].hue)
 					that._saturation = $caster.percentage(args[0].saturation)
@@ -63,7 +63,7 @@ Color.registerSpace!({
 			}
 		}
 		else if args.length >= 3 {
-			that._space = 'hsb'
+			that._space = Space::HSB
 			that._hue = $caster.hue(args[0])
 			that._saturation = $caster.percentage(args[1])
 			that._brightness = $caster.percentage(args[2])
@@ -72,7 +72,7 @@ Color.registerSpace!({
 		}
 	} // }}}
 	formatters: {
-		hsb(that) { // {{{
+		[Space::HSB](that) { // {{{
 			if that._alpha == 1 {
 				return 'hsb(' + that._hue + ', ' + that._saturation + '%, ' + that._brightness + '%)'
 			}
@@ -80,7 +80,7 @@ Color.registerSpace!({
 				return 'hsba(' + that._hue + ', ' + that._saturation + '%, ' + that._brightness + '%, ' + that._alpha + ')'
 			}
 		} // }}}
-		hsv(that) { // {{{
+		[Space::HSV](that) { // {{{
 			if that._alpha == 1 {
 				return 'hsv(' + that._hue + ', ' + that._saturation + '%, ' + that._brightness + '%)'
 			}
@@ -91,7 +91,7 @@ Color.registerSpace!({
 	}
 	converters: {
 		from: {
-			srgb(red, green, blue, that) { // {{{
+			[Space::SRGB](red, green, blue, that) { // {{{
 				const r = red / 255
 				const g = green / 255
 				const b = blue / 255
@@ -131,7 +131,7 @@ Color.registerSpace!({
 			} // }}}
 		}
 		to: {
-			srgb(hue, saturation, brightness, that) { // {{{
+			[Space::SRGB](hue, saturation, brightness, that) { // {{{
 				const h = hue / 360
 				const s = saturation / 100
 				const v = brightness / 100

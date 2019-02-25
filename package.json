@@ -15,6 +15,7 @@
 	"bugs": {
 		"url": "https://github.com/zokugunks/lang.color.alvy/issues"
 	},
+	"license": "MIT",
 	"licenses": [
 		{
 			"type": "MIT",
@@ -36,7 +37,7 @@
 		"@zokugun/istanbul.cover.cmd.mocha": "^0.4.0",
 		"@zokugun/istanbul.reporter.minimap": "^0.5.0",
 		"chai": "^4.2.0",
-		"coveralls": "^3.0.2",
+		"coveralls": "^3.0.3",
 		"istanbul": "^0.4.5",
 		"kaoscript": "github:kaoscript/kaoscript",
 		"mocha": "^5.2.0"

@@ -1,3 +1,8 @@
+extern {
+	func parseFloat(...): Number
+	func parseInt(...): Number
+}
+
 const $hue = {
 	bases: {
 		red: 0,

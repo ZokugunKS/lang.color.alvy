@@ -1,15 +1,11 @@
-extern {
-	func parseFloat(...): Number
-	func parseInt(...): Number
-}
-
 import '@zokugun/lang'
 import '@zokugun/lang.color'
 
 enum Space {
 	HSB
-	HSL
 	HSI
+	HSL
+	HSV
 	HWB
 }
 
