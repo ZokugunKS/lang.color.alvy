@@ -5,7 +5,6 @@ enum Space {
 	HSB
 	HSI
 	HSL
-	HSV
 	HWB
 }
 

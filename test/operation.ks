@@ -89,6 +89,7 @@ describe('operation', func() {
 		expect(c.hex()).to.equal('#b2cca9')
 	}) // }}}
 
+	#[error(off)]
 	it('space(#abc, hwb)', func() { // {{{
 		const c = new Color('#abc')
 

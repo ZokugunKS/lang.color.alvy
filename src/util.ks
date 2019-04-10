@@ -26,13 +26,13 @@ const $rad2degree = 360 / (2 * Math.PI)
 
 const $caster = {
 	alpha(n?, percentage = null) { // {{{
-		n = parseFloat(n)
+		const value = parseFloat(n)
 
-		if n == NaN {
+		if value == NaN {
 			return 1
 		}
 
-		return (?percentage ? n / 100 : n).limit(0, 1).round(3)
+		return (?percentage ? value / 100 : value).limit(0, 1).round(3)
 	} // }}}
 	ff(n) => parseFloat(n).limit(0, 255).round()
 	hue(hue) { // {{{
@@ -76,8 +76,7 @@ const $caster = {
 				return (($hue.bases[hue1] + $hue.bases[hue2]) / 2).limit(0, 359).round()
 			}
 			else {
-				/* const splash = $hue.splashes[hue1.before('(')] */
-				const splash = $hue.splashes[hue1.before('(') || hue1]
+				const splash = $hue.splashes[hue1.substringBefore('(', 0, hue1)]
 				const pourcent = (hue1.replace(/[a-z\(\)\%]/gi, '').toInt() || 25) / 100
 				const base = $hue.bases[hue2]
 				const d = splash - base

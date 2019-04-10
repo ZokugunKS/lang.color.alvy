@@ -80,7 +80,7 @@ Color.registerSpace!({
 				return 'hsba(' + that._hue + ', ' + that._saturation + '%, ' + that._brightness + '%, ' + that._alpha + ')'
 			}
 		} // }}}
-		[Space::HSV](that) { // {{{
+		hsv(that) { // {{{
 			if that._alpha == 1 {
 				return 'hsv(' + that._hue + ', ' + that._saturation + '%, ' + that._brightness + '%)'
 			}
