@@ -78,7 +78,7 @@ const $caster = {
 			else {
 				const splash = $hue.splashes[hue1.substringBefore('(', 0, hue1)]
 				const pourcent = (hue1.replace(/[a-z\(\)\%]/gi, '').toInt() || 25) / 100
-				const base = $hue.bases[hue2]
+				const base: Number = $hue.bases[hue2]
 				const d = splash - base
 
 				return (base + (d * pourcent)).limit(0, 359).round()
